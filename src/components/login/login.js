@@ -6,7 +6,9 @@ import './login.css';
 import { isNull} from "util";
 import Cookies from "universal-cookie";
 import { calculaExtracionSesion } from "../helper/helper";
-import Loading from "../loading/loading"
+import Loading from "../loading/loading";
+
+
 
 const { APIHOST } = app;
 const cookies = new Cookies();
