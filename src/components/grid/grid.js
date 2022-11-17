@@ -11,6 +11,7 @@ import ToolkitProvider, {
 } from "react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit";
 
 import { request } from "../helper/helper";
+import Loading from "../loading/loading";
 
 const { SearchBar } = Search;
 
@@ -18,6 +19,7 @@ export default class DataGrid extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      Loading: false,
       rows: [],
     };
   }
@@ -25,21 +27,27 @@ export default class DataGrid extends React.Component {
     this.getData();
   }
   getData() {
+    this.setState({ loading: false});
     request
       .get(this.props.url)
       .then((response) => {
-        this.setState({ rows: response.data });
+        this.setState({ rows: response.data,
+        Loading: false });
       })
       .catch((error) => {
+        this.setState({ loading: false});
         console.log(error);
       });
   }
+
   render() {
     const options = {
       custom: true,
       totalSize: this.state.rows.length,
     };
     return (
+      <>
+      <Loading show={this.state.loading}/>
       <ToolkitProvider
         keyField="tp"
         data={this.state.rows}
@@ -74,6 +82,7 @@ export default class DataGrid extends React.Component {
           </div>
         )}
       </ToolkitProvider>
+      </>
     );
   }
 }

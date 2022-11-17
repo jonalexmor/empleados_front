@@ -1,7 +1,11 @@
-#empleado-buscar-container,
 #empleados-container
 {
     margin-top: 150px;
+}
+#empleados-buscar-container, 
+#empleados-crear-container
+{
+    margin-top: 50px;
 }
 .react-bs-table-sizePerPage-dropdown .dropdown-toggle{
     float: left;
@@ -15,3 +19,7 @@
     font-size: 0;
 }
 
+#empleados-crear-container .form-label{
+    float:left;
+    margin-bottom: 10px;
+}
