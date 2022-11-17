@@ -1,7 +1,17 @@
-#empleado-buscar-container{
-    margin-top: 100px;
+#empleado-buscar-container,
+#empleados-container
+{
+    margin-top: 150px;
 }
 .react-bs-table-sizePerPage-dropdown .dropdown-toggle{
     float: left;
     margin-bottom: 20px;
 }
+.search-Label {
+    float: right;
+    padding-bottom: 10px;
+}
+.sr-only {
+    font-size: 0;
+}
+
